@@ -17,9 +17,12 @@ const ContactForm = () => {
     const phone = form.number.value;
     const NewName = selector.find(data => data.name === name);
     event.target.reset();
+    const NewNumber = selector.find(data => data.phone === phone);
 
     if (NewName) {
       return alert(`${NewName.name} is already in contacts`);
+    } else if (NewNumber) {
+      return alert(`${NewNumber.phone} is already in contacts`);
     } else {
       return dispatch(addContact({ id, name, phone }));
     }
